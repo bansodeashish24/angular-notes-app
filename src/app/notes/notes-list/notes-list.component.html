@@ -1,0 +1,8 @@
+<div class="note-card-container">
+  <app-note-card
+    class="note-card"
+    *ngFor="let note of notes"
+    [title]="note.title"
+    [noteContents]="note.contents"
+  ></app-note-card>
+</div>

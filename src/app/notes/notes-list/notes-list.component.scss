@@ -1,0 +1,18 @@
+$header-height: 70px;
+
+.note-card-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+  padding: 20px;
+  background-color: #eef1ff;
+  height: calc(100vh - $header-height);
+  overflow-y: auto;
+}
+
+.note-card {
+  width: calc((100% / 4) - 86px);
+}

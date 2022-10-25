@@ -4,15 +4,21 @@ import { NoteDetailsComponent } from './notes/note-details/note-details.componen
 import { NotesListComponent } from './notes/notes-list/notes-list.component';
 import { NotesComponent } from './notes/notes.component';
 import { NotesModule } from './notes/notes.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'notes',
+  },
   {
     path: 'notes',
     loadChildren: () => NotesModule,
   },
   {
     path: '**',
-    redirectTo: 'notes',
+    component: PageNotFoundComponent,
   },
 ];
 

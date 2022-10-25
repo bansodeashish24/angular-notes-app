@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-note-card',
@@ -11,5 +11,11 @@ export class NoteCardComponent implements OnInit {
   @Input() title = '';
   @Input() noteContents = '';
 
+  @Output() cardClicked = new EventEmitter();
+
   ngOnInit(): void {}
+
+  onCardClick() {
+    this.cardClicked.emit();
+  }
 }

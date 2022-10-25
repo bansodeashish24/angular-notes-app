@@ -1,18 +1,31 @@
 $header-height: 70px;
 
+.note-list-container {
+  background-color: #eef1ff;
+  height: calc(100vh - $header-height);
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px;
+}
+
 .note-card-container {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
   width: 100%;
-  padding: 20px;
-  background-color: #eef1ff;
-  height: calc(100vh - $header-height);
+  height: 85%;
   overflow-y: auto;
 }
 
 .note-card {
-  width: calc((100% / 4) - 86px);
+  width: calc((100% / 5) - 18px);
 }

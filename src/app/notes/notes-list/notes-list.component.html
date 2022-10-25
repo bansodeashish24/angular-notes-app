@@ -1,8 +1,23 @@
-<div class="note-card-container">
-  <app-note-card
-    class="note-card"
-    *ngFor="let note of notes"
-    [title]="note.title"
-    [noteContents]="note.contents"
-  ></app-note-card>
+<div class="note-list-container">
+  <div class="controls">
+    <button
+      class="add-button"
+      mat-mini-fab
+      color="primary"
+      aria-label="Add note button"
+      title="Add Note"
+      (click)="onAddNote()"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+  <div class="note-card-container">
+    <app-note-card
+      class="note-card"
+      *ngFor="let note of notes"
+      [title]="note.title"
+      [noteContents]="note.contents"
+      (cardClicked)="onEditNote(note.id)"
+    ></app-note-card>
+  </div>
 </div>

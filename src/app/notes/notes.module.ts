@@ -7,6 +7,7 @@ import { NotesComponent } from './notes.component';
 import { NotesRoutingModule } from './notes.routes';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,12 @@ import { MatMenuModule } from '@angular/material/menu';
     NoteDetailsComponent,
     NotesComponent,
   ],
-  imports: [CommonModule, NotesRoutingModule, MatIconModule, MatMenuModule],
+  imports: [
+    CommonModule,
+    NotesRoutingModule,
+    MatIconModule,
+    MatMenuModule,
+    MatButtonModule,
+  ],
 })
 export class NotesModule {}

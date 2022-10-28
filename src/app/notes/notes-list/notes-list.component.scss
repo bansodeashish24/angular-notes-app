@@ -29,3 +29,23 @@ $header-height: 70px;
 .note-card {
   width: calc((100% / 5) - 18px);
 }
+
+.no-contents-container {
+  height: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.no-contents-container h2 {
+  color: #6554c0;
+  font-family: "Roboto";
+  margin-bottom: 0px;
+  font-weight: 600px;
+}
+
+.no-contents-container em {
+  color: #6554c0;
+}

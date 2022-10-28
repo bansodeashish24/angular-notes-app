@@ -9,19 +9,20 @@ export class NotesService {
 
   createNote(newNote: Note): void {
     const notes = this.getAllNotes();
+    newNote.id = (notes.length + 1).toString();
     notes.push(newNote);
     localStorage.setItem('notes', JSON.stringify(notes));
   }
 
-  getNote(noteId: string): Note | undefined {
+  getNote(noteId: string): Note {
     const notes = this.getAllNotes();
-    return notes.find((note) => note.id === noteId);
+    return notes.find((note) => note.id === noteId)!;
   }
 
   updateNote(noteId: string, updatedNote: Note): void {
     const notes = this.getAllNotes();
     const noteIndex = notes.findIndex((note) => note.id === noteId);
-    if (noteIndex) {
+    if (noteIndex >= 0) {
       notes.splice(noteIndex, 1, updatedNote);
     }
     localStorage.setItem('notes', JSON.stringify(notes));
@@ -30,7 +31,7 @@ export class NotesService {
   deleteNote(noteId: string): void {
     const notes = this.getAllNotes();
     const noteIndex = notes.findIndex((note) => note.id === noteId);
-    if (noteIndex) {
+    if (noteIndex >= 0) {
       notes.splice(noteIndex, 1);
     }
     localStorage.setItem('notes', JSON.stringify(notes));

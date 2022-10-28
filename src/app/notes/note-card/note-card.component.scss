@@ -39,7 +39,9 @@
 
 .card-container p {
   width: 100%;
+  height: 80%;
   overflow: hidden;
+  word-break: break-all;
   font-weight: 400;
   font-size: 16px;
   cursor: pointer;

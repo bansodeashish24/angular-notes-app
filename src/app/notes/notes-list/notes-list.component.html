@@ -11,7 +11,7 @@
       <mat-icon>add</mat-icon>
     </button>
   </div>
-  <div class="note-card-container">
+  <div *ngIf="notes.length > 0" class="note-card-container">
     <app-note-card
       class="note-card"
       *ngFor="let note of notes"
@@ -20,5 +20,10 @@
       (cardClicked)="onEditNote(note.id)"
       (deleteClicked)="onDeleteNote(note.id)"
     ></app-note-card>
+  </div>
+  <div *ngIf="notes.length === 0" class="no-contents-container">
+    <img src="./assets/images/no-data.svg" alt="no data available" />
+    <h2>No notes available</h2>
+    <em>Add a note to get started!</em>
   </div>
 </div>

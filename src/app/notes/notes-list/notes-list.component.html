@@ -18,6 +18,7 @@
       [title]="note.title"
       [noteContents]="note.contents"
       (cardClicked)="onEditNote(note.id)"
+      (deleteClicked)="onDeleteNote(note.id)"
     ></app-note-card>
   </div>
 </div>

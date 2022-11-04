@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatSidenav } from '@angular/material/sidenav';
+import { CommonSharedService } from '../common-shared.service';
+import { Note } from './notes.model';
 
 @Component({
   selector: 'app-notes',
@@ -7,12 +10,34 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./notes.component.scss'],
 })
 export class NotesComponent implements OnInit {
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
+  @ViewChild('sidenav') sidenav!: MatSidenav;
+  openSidenavSubscription: any;
+  noteId: string = '';
 
-  ngOnInit(): void {}
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private commonSharedService: CommonSharedService
+  ) {}
+
+  ngOnInit(): void {
+    this.openSidenavSubscription =
+      this.commonSharedService.openNoteDetailsSidenav.subscribe((noteId) => {
+        this.toggleSidenav(noteId);
+      });
+  }
+
+  ngOnDestroy() {
+    this.openSidenavSubscription.unsubscribe();
+  }
 
   goToNotesList() {
     // this.router.navigate(['list'], { relativeTo: this.activatedRoute });
     this.router.navigateByUrl('notes/list');
+  }
+
+  toggleSidenav(noteId: any) {
+    this.noteId = noteId;
+    this.sidenav.toggle();
   }
 }

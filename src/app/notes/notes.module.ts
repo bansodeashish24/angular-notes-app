@@ -9,7 +9,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NotesDetailsReactiveComponent } from './notes-details-reactive/notes-details-reactive.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,7 @@ import { FormsModule } from '@angular/forms';
     NotesListComponent,
     NoteDetailsComponent,
     NotesComponent,
+    NotesDetailsReactiveComponent,
   ],
   imports: [
     CommonModule,
@@ -25,7 +28,9 @@ import { FormsModule } from '@angular/forms';
     MatMenuModule,
     MatButtonModule,
     MatInputModule,
+    MatSidenavModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
 })
 export class NotesModule {}

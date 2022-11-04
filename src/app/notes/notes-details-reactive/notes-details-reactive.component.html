@@ -1,0 +1,40 @@
+<div class="note-form-container">
+  <div class="header">
+    <h2 class="page-title">Edit Note</h2>
+    <mat-icon (click)="closeSidenav()">close</mat-icon>
+  </div>
+  <form [formGroup]="noteForm">
+    <mat-form-field class="note-title" appearance="outline">
+      <mat-label>Note Title</mat-label>
+      <input matInput type="text" formControlName="title" />
+      <button
+        *ngIf="noteForm.value.title"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="resetTitle()"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field class="content" appearance="outline">
+      <mat-label>Note Content</mat-label>
+      <textarea
+        matInput
+        placeholder="E.g. Meeting notes..."
+        formControlName="contents"
+      ></textarea>
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      class="save-button"
+      color="primary"
+      [disabled]="!noteForm.value.title || !noteForm.value.contents"
+      (click)="saveNote()"
+    >
+      Save
+    </button>
+  </form>
+</div>

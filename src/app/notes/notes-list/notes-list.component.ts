@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CommonSharedService } from 'src/app/common-shared.service';
 import { Note } from '../notes.model';
 import { NotesService } from '../notes.service';
 
@@ -12,7 +13,8 @@ export class NotesListComponent implements OnInit {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private notesService: NotesService
+    private notesService: NotesService,
+    private commonSharedService: CommonSharedService
   ) {}
 
   // notes: Note[] = [
@@ -133,9 +135,18 @@ export class NotesListComponent implements OnInit {
   // ];
 
   notes: Note[] = [];
+  refreshListSubjectSubscription: any;
 
   ngOnInit(): void {
     this.fetchNotes();
+    this.refreshListSubjectSubscription =
+      this.commonSharedService.refreshListSubject.subscribe((data) => {
+        this.fetchNotes();
+      });
+  }
+
+  ngOnDestroy() {
+    this.refreshListSubjectSubscription.unsubscribe();
   }
 
   fetchNotes() {
@@ -146,8 +157,12 @@ export class NotesListComponent implements OnInit {
     this.router.navigate(['../add'], { relativeTo: this.activatedRoute });
   }
 
-  onEditNote(noteId: string): void {
+  onOpenNoteInFullscreen(noteId: string): void {
     this.router.navigate(['..', noteId], { relativeTo: this.activatedRoute });
+  }
+
+  onEditNote(noteId: string): void {
+    this.commonSharedService.openNoteDetailsSidenav.next(noteId);
   }
 
   onDeleteNote(noteId: string) {

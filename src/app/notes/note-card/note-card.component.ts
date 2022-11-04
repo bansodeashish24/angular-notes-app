@@ -12,12 +12,17 @@ export class NoteCardComponent implements OnInit {
   @Input() noteContents = '';
 
   @Output() cardClicked = new EventEmitter();
+  @Output() openFullScreenClicked = new EventEmitter();
   @Output() deleteClicked = new EventEmitter();
 
   ngOnInit(): void {}
 
   onCardClick() {
     this.cardClicked.emit();
+  }
+
+  onOpenFullScreenClicked() {
+    this.openFullScreenClicked.emit();
   }
 
   onDeleteClick() {

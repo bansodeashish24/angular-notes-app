@@ -23,7 +23,7 @@ const routes: Routes = [
         component: NoteDetailsComponent,
       },
       {
-        path: ':id',
+        path: 'detail/:id', // route params
         component: NoteDetailsComponent,
       },
     ],

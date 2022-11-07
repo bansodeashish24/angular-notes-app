@@ -24,13 +24,19 @@
       ></textarea>
     </mat-form-field>
 
-    <button
-      mat-raised-button
-      color="primary"
-      [disabled]="!note.title || !note.contents"
-      (click)="saveNote()"
-    >
-      Save
-    </button>
+    <div class="controls">
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="!note.title || !note.contents"
+        (click)="saveNote()"
+      >
+        Save
+      </button>
+
+      <button mat-raised-button color="primary" (click)="redirectToNotesList()">
+        Go to Notes List
+      </button>
+    </div>
   </div>
 </div>

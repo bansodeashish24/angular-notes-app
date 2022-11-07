@@ -1,0 +1,15 @@
+.container {
+  padding: 20px;
+
+  .article-container {
+    width: 50%;
+    margin: 0 auto;
+
+    img {
+      height: 400px;
+      margin: 0 auto;
+      display: block;
+      margin-bottom: 30px;
+    }
+  }
+}

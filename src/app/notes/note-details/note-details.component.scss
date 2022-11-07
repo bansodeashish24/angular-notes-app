@@ -37,3 +37,10 @@ $header-height: 70px;
   font-style: normal;
   font-size: 16px;
 }
+
+.controls {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+}

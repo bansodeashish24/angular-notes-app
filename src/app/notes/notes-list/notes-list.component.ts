@@ -154,11 +154,17 @@ export class NotesListComponent implements OnInit {
   }
 
   onAddNote(): void {
-    this.router.navigate(['../add'], { relativeTo: this.activatedRoute });
+    // Relative Routing
+    // this.router.navigate(['../add'], { relativeTo: this.activatedRoute });
+
+    // Absolute Routing
+    this.router.navigateByUrl('notes/add');
   }
 
   onOpenNoteInFullscreen(noteId: string): void {
-    this.router.navigate(['..', noteId], { relativeTo: this.activatedRoute });
+    this.router.navigate(['../detail', noteId], {
+      relativeTo: this.activatedRoute,
+    });
   }
 
   onEditNote(noteId: string): void {

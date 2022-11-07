@@ -45,4 +45,11 @@ export class NoteDetailsComponent implements OnInit {
     }
     this.router.navigateByUrl('notes/list');
   }
+
+  redirectToNotesList() {
+    // this.router.navigate(['../../list'], { relativeTo: this.activatedRoute });
+
+    // this.router.navigate(['../list'], { relativeTo: this.activatedRoute });
+    this.router.navigateByUrl('notes/list');
+  }
 }

@@ -1,0 +1,29 @@
+header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: aliceblue;
+  height: 45px;
+  padding: 20px;
+
+  ul {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    list-style-type: none;
+    gap: 20px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #6554c0;
+
+    li {
+      cursor: pointer;
+      padding-bottom: 5px;
+    }
+
+    .selected-option {
+      padding-bottom: 2px;
+      border-bottom: 3px solid rebeccapurple;
+    }
+  }
+}

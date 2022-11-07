@@ -1,0 +1,22 @@
+$main-heading-height: 45px;
+$feature-heading-height: 60px;
+
+.container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 35px;
+  padding: 20px;
+  background-color: beige;
+  height: calc(100vh - $main-heading-height - $feature-heading-height);
+}
+
+.card {
+  width: 200px;
+  height: 150px;
+  border: 2px solid saddlebrown;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+}
